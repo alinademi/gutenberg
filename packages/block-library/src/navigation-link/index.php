@@ -240,7 +240,7 @@ function register_block_core_navigation_link() {
 	$variations   = array();
 	$variations[] = array(
 		'name'        => 'link',
-		'isDefault'   => true, //TODO: not sure if we transform nested properties correctly (snake to camel)
+		'isDefault'   => true, // TODO: not sure if we transform nested properties correctly (snake to camel)
 		'title'       => __( 'Link' ),
 		'description' => __( 'A link to a URL.' ),
 		'attributes'  => array(),
@@ -251,8 +251,8 @@ function register_block_core_navigation_link() {
 				'name'       => $post_type->name,
 				'title'      => $post_type->labels->menu_name,
 				'attributes' => array(
-					'type'       => $post_type->name,
-					'objectType' => 'post-type',
+					'type' => $post_type->name,
+					'kind' => 'post-type',
 				),
 			);
 		}
@@ -264,8 +264,8 @@ function register_block_core_navigation_link() {
 				'name'       => $name,
 				'title'      => $taxonomy->labels->menu_name,
 				'attributes' => array(
-					'type'       => $name,
-					'objectType' => 'taxonomy',
+					'type' => $name,
+					'kind' => 'taxonomy',
 				),
 			);
 		}
