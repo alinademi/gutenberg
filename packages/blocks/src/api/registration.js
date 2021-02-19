@@ -160,10 +160,16 @@ export const serverSideBlockDefinitions = {};
 // eslint-disable-next-line camelcase
 export function unstable__bootstrapServerSideBlockDefinitions( definitions ) {
 	for ( const blockName of Object.keys( definitions ) ) {
-		serverSideBlockDefinitions[ blockName ] = mapKeys(
-			pickBy( definitions[ blockName ], ( value ) => ! isNil( value ) ),
-			( value, key ) => camelCase( key )
-		);
+		// don't overwrite with block.json if we've already initialized from server
+		if ( ! serverSideBlockDefinitions[ blockName ] ) {
+			serverSideBlockDefinitions[ blockName ] = mapKeys(
+				pickBy(
+					definitions[ blockName ],
+					( value ) => ! isNil( value )
+				),
+				( value, key ) => camelCase( key )
+			);
+		}
 	}
 }
 
