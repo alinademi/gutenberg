@@ -251,7 +251,7 @@ function register_block_core_navigation_link() {
 	}
 	if ( $taxonomies ) {
 		foreach ( $taxonomies as $taxonomy ) {
-			$name         = $taxonomy->name === 'post_tag' ? 'tag' : $taxonomy->name;
+			$name         = 'post_tag' === $taxonomy->name ? 'tag' : $taxonomy->name;
 			$variations[] = array(
 				'name'       => $name,
 				'singular'   => $taxonomy->labels->singular_name,
