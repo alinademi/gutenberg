@@ -234,23 +234,15 @@ function render_block_core_navigation_link( $attributes, $content, $block ) {
  */
 function register_block_core_navigation_link() {
 
-	// TODO: what about icons, description, title, isActive?
-	$post_types   = get_post_types( array( 'show_in_nav_menus' => true ), 'objects' );
-	$taxonomies   = get_taxonomies( array( 'show_in_nav_menus' => true ), 'objects' );
-	$variations   = array();
-	$variations[] = array(
-		'name'        => 'link',
-		'isDefault'   => true, // TODO: not sure if we transform nested properties correctly (snake to camel)
-		'title'       => __( 'Link' ),
-		'description' => __( 'A link to a URL.' ),
-		'attributes'  => array(),
-	);
+	$post_types = get_post_types( array( 'show_in_nav_menus' => true ), 'objects' );
+	$taxonomies = get_taxonomies( array( 'show_in_nav_menus' => true ), 'objects' );
+	$variations = array();
 	if ( $post_types ) {
 		foreach ( $post_types as $post_type ) {
 			$variations[] = array(
-				'name'       => $post_type->name,
-				'title'      => $post_type->labels->menu_name,
-				'attributes' => array(
+				'name'         => $post_type->name,
+				'singularName' => $post_type->labels->singular_name,
+				'attributes'   => array(
 					'type' => $post_type->name,
 					'kind' => 'post-type',
 				),
@@ -261,9 +253,9 @@ function register_block_core_navigation_link() {
 		foreach ( $taxonomies as $taxonomy ) {
 			$name         = $taxonomy->name === 'post_tag' ? 'tag' : $taxonomy->name;
 			$variations[] = array(
-				'name'       => $name,
-				'title'      => $taxonomy->labels->menu_name,
-				'attributes' => array(
+				'name'         => $name,
+				'singularName' => $taxonomy->labels->singular_name,
+				'attributes'   => array(
 					'type' => $name,
 					'kind' => 'taxonomy',
 				),

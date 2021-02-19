@@ -11,6 +11,7 @@ import { InnerBlocks } from '@wordpress/block-editor';
 import metadata from './block.json';
 import edit from './edit';
 import save from './save';
+import './hooks';
 
 const { name } = metadata;
 
