@@ -37,14 +37,14 @@ function enhanceNavigationLinkVariations( settings, name ) {
 					title: sprintf(
 						// translators: the entity (post, page, category, tag, etc)
 						__( '%s Link' ),
-						variation.singularName
+						variation.singular
 					),
 				} ),
 				...( ! variation.description && {
 					description: sprintf(
 						// translators: the entity (post, page, category, tag, etc)
 						__( 'A link to a %s' ),
-						variation.singularName
+						variation.singular
 					),
 				} ),
 			};
