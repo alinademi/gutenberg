@@ -3,7 +3,6 @@
  */
 import { addFilter } from '@wordpress/hooks';
 import { category, page, postTitle, tag } from '@wordpress/icons';
-import { __, sprintf } from '@wordpress/i18n';
 
 const ICON_MAP = {
 	category,
@@ -32,19 +31,6 @@ function enhanceNavigationLinkVariations( settings, name ) {
 							blockAttributes.type === variationAttributes.type
 						);
 					},
-				} ),
-				//TODO: translations still need a bit of work, need to allow others to override title for custom variants
-				title: sprintf(
-					// translators: the entity (post, page, category, tag, etc)
-					__( '%s Link' ),
-					variation.title
-				),
-				...( ! variation.description && {
-					description: sprintf(
-						// translators: the entity (post, page, category, tag, etc)
-						__( 'A link to a %s' ),
-						variation.title
-					),
 				} ),
 			};
 		} );
