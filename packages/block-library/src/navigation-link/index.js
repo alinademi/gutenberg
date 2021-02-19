@@ -39,6 +39,13 @@ export const settings = {
 
 	save,
 
+	example: {
+		attributes: {
+			label: _x( 'Example Link', 'navigation link preview example' ),
+			url: 'https://example.com',
+		},
+	},
+
 	deprecated: [
 		{
 			isEligible( attributes ) {

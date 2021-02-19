@@ -33,18 +33,17 @@ function enhanceNavigationLinkVariations( settings, name ) {
 						);
 					},
 				} ),
-				...( ! variation.title && {
-					title: sprintf(
-						// translators: the entity (post, page, category, tag, etc)
-						__( '%s Link' ),
-						variation.singular
-					),
-				} ),
+				//TODO: translations still need a bit of work, need to allow others to override title for custom variants
+				title: sprintf(
+					// translators: the entity (post, page, category, tag, etc)
+					__( '%s Link' ),
+					variation.title
+				),
 				...( ! variation.description && {
 					description: sprintf(
 						// translators: the entity (post, page, category, tag, etc)
 						__( 'A link to a %s' ),
-						variation.singular
+						variation.title
 					),
 				} ),
 			};

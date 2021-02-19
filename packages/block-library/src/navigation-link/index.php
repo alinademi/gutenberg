@@ -241,7 +241,7 @@ function register_block_core_navigation_link() {
 		foreach ( $post_types as $post_type ) {
 			$variations[] = array(
 				'name'       => $post_type->name,
-				'singular'   => $post_type->labels->singular_name,
+				'title'      => $post_type->labels->singular_name,
 				'attributes' => array(
 					'type' => $post_type->name,
 					'kind' => 'post-type',
@@ -254,7 +254,7 @@ function register_block_core_navigation_link() {
 			$name         = 'post_tag' === $taxonomy->name ? 'tag' : $taxonomy->name;
 			$variations[] = array(
 				'name'       => $name,
-				'singular'   => $taxonomy->labels->singular_name,
+				'title'      => $taxonomy->labels->singular_name,
 				'attributes' => array(
 					'type' => $name,
 					'kind' => 'taxonomy',
